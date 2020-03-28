@@ -30,4 +30,17 @@ public class BasicAlgorithms {
         return Arrays.asList(countA,countB);
     }
 
+
+    public static int diagonalDifference(List<List<Integer>> matrix){
+        int leftSum = 0,rightSum = 0;
+        int topRight = matrix.size()-1;
+
+        for(int i =0;i<matrix.size();i++){
+            leftSum += matrix.get(i).get(i);
+            rightSum += matrix.get(i).get(topRight-i);
+        }
+
+
+        return  Math.abs(leftSum-rightSum);
+    }
 }
