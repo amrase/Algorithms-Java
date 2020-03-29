@@ -1,9 +1,7 @@
 package test;
 
-import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Arrays;
-import java.util.List;
 
 public class BasicAlgorithms {
 
@@ -85,6 +83,75 @@ public class BasicAlgorithms {
             System.out.println();
         }
 
+    }
+
+
+    public static void miniMaxSum(int[] arr){
+        int temp = 0;
+        for(int i=0;i<arr.length;i++){
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[i]>arr[j]){
+                    temp=arr[i];
+                    arr[i] = arr[j];
+                    arr[j]=temp;
+                }
+
+            }
+        }
+        long minSum = 0,maxSum=0;
+        for(int i=1;i<arr.length;i++){
+            maxSum += arr[i];
+        }
+        for(int i=0;i<arr.length-1l;i++){
+            minSum +=arr[i];
+        }
+        System.out.println(minSum + " " + maxSum);
+    }
+
+
+
+
+
+
+
+
+
+//    public static void miniMaxSum(int[] arr) {
+//        int temp = 0;
+//        for (int i = 0; i < arr.length; i++)
+//        {
+//            for (int j = i + 1; j < arr.length; j++) {
+//                if (arr[i] > arr[j])
+//                {
+//                    temp = arr[i];
+//                    arr[i] = arr[j];
+//                    arr[j] = temp;
+//                }
+//            }
+//        }
+//
+//        long minSum = 0;
+//        long maxSum = 0;
+//        for(int i = 1; i< arr.length; i++){
+//            maxSum = maxSum + arr[i];
+//        }
+//        for(int i = 0; i< arr.length-1; i++){
+//            minSum = minSum + arr[i];
+//        }
+//        System.out.println(minSum+ " " +maxSum);
+//    }
+
+    public static void swapArray(int[] arr){
+        int temp = 0;
+        for(int i = 0; i < arr.length; i++) {
+            for(int j=1; j < (arr.length-i); j++) {
+                if(arr[j-1] > arr[j]) {
+                    temp = arr[j-1];
+                    arr[j-1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
     }
 
 

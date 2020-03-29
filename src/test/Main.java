@@ -23,8 +23,14 @@ public class Main {
 //        System.out.println("Diagon Differnece = " + test.diagonalDifference(matrix));
 
         int[] array = {-4,3,-9,0,4,1};
-//        test.plusMinus(array);
-        test.staircase(array.length);
+        int[] minMaxArray= {1,2,3,4,5};
+        int[] minMaxArray2 = {7,69 ,2 ,221, 8974};
+
+
+        //        test.plusMinus(array);
+//        test.staircase(array.length);
+        test.miniMaxSum(minMaxArray);
+        test.miniMaxSum(minMaxArray2);
 //        System.out.println("Sum = "+ test.arraySum(sumArray));
 //        System.out.println("Alice " + test.compareTriplets(arrayA,arrayB) + " Bob" );
     }
