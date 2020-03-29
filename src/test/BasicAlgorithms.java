@@ -108,38 +108,22 @@ public class BasicAlgorithms {
         System.out.println(minSum + " " + maxSum);
     }
 
+    public static int birthdayCakeCandles(int[] arr) {
+        int count = 0;
+        int max = arr[0];
+        for (int i =0;i<arr.length;i++){
+            if(arr[i]>max){
+                max = arr[i];
+                System.out.println(max);
+            }
+        }
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==max)
+                count++;
+        }
+        return count;
+    }
 
-
-
-
-
-
-
-
-//    public static void miniMaxSum(int[] arr) {
-//        int temp = 0;
-//        for (int i = 0; i < arr.length; i++)
-//        {
-//            for (int j = i + 1; j < arr.length; j++) {
-//                if (arr[i] > arr[j])
-//                {
-//                    temp = arr[i];
-//                    arr[i] = arr[j];
-//                    arr[j] = temp;
-//                }
-//            }
-//        }
-//
-//        long minSum = 0;
-//        long maxSum = 0;
-//        for(int i = 1; i< arr.length; i++){
-//            maxSum = maxSum + arr[i];
-//        }
-//        for(int i = 0; i< arr.length-1; i++){
-//            minSum = minSum + arr[i];
-//        }
-//        System.out.println(minSum+ " " +maxSum);
-//    }
 
     public static void swapArray(int[] arr){
         int temp = 0;
