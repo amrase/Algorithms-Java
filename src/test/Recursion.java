@@ -2,8 +2,9 @@ package test;
 
 public class Recursion {
     public static void main(String[] args) {
-        foo(3);
-        System.out.println(factorial(4));
+        foo(-1);
+        //System.out.println(factorial(5));
+        System.out.println(fib(3));
     }
 
     public static void foo(int n){
@@ -26,5 +27,19 @@ public class Recursion {
         else{
            return (n*factorial(n-1));
         }
+    }
+
+    public static int fib(int n){
+        if(n<1){
+            return 1;
+        }
+        else if(n == 1 || n==2){
+            return n-1;
+        }
+        else{
+            return fib(n-1) + fib(n-2);
+
+        }
+
     }
 }
