@@ -2,12 +2,13 @@ package test;
 
 public class Algoirthms {
     public static void main(String[] args) {
-        int[] testArray = {2,1,4,6,8,9,30,22};
+        int[] testArray = {2,1,2,4,6,8,9,30,22};
         System.out.println("1 Biggest number = " + findBiggestNumber(testArray));
         //System.out.println("2 Biggest number = " + findBiggestNumber(testArray,7));
         System.out.println("Binary Search number = " + binarySearchRec(testArray,8,0,testArray.length-1));
         System.out.println("Min number = " + findMinRec(testArray,testArray.length));
         System.out.println("Big number = " + findBigRec(testArray,testArray.length));
+        print3SmallestNumbers(testArray,testArray.length);
     }
 
 
@@ -19,7 +20,6 @@ public class Algoirthms {
             }
         }
         return  biggestNumber; //------------- O(1)
-
         //Time Complexity = O(1)+ O(n) + O(1) = O(n)
     }
 
@@ -83,5 +83,30 @@ public class Algoirthms {
         }
         return elementPos;
     }
+
+
+    public static void print3SmallestNumbers(int[] array,int n){
+        int firstMin = Integer.MAX_VALUE;
+        int secondMin = Integer.MAX_VALUE;
+        int thirdMin = Integer.MAX_VALUE;
+        for(int i=0;i<n ;i++){
+            if(array[i]<firstMin){
+                thirdMin = secondMin;
+                secondMin = firstMin;
+                firstMin = array[i];
+            }
+            else if(array[i]<secondMin){
+                thirdMin = secondMin;
+                secondMin = array[i];
+            }
+            else if(array[i]<thirdMin ){
+                thirdMin = array[i];
+            }
+        }
+        System.out.println("First num = "  + firstMin);
+        System.out.println("Second num = "  + secondMin);
+        System.out.println("Third num = "  + thirdMin);
+    }
+
 }
 
