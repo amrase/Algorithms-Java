@@ -3,72 +3,79 @@ package arrays;
 import java.util.Arrays;
 
 public class SingleDimensionArray {
+    //Declare an array
     int arr[] = null;
 
-    public SingleDimensionArray(int sizeOfArray) {
-        arr = new int[sizeOfArray];
-        for (int i=0;i<arr.length;i++){
-            arr[i] = Integer.MIN_VALUE;
+    public SingleDimensionArray(int arraySize){
+        arr = new int[arraySize];
+        for(int i=0;i<arr.length;i++){
+           arr[i] =Integer.MIN_VALUE;
         }
     }
+
+
 
     //Print Array
     public void traverseArray(){
         try {
-            for(int i=0;i<arr.length;i++){
+            for (int i = 0; i < arr.length; i++) {
                 System.out.print(arr[i] + " ");
             }
-
         }
         catch (Exception e){
-            System.out.println("Array no longer exists");
+            System.out.println("Array no longer exists!");
         }
     }
-
-    public void insert(int location,int valueToBoInserted){
+    //Insert a value in to a specific location
+    public void insert(int location,int value){
         try{
             if(arr[location] == Integer.MIN_VALUE){
-                arr[location]= valueToBoInserted;
-                System.out.println("Successfully inserted " + valueToBoInserted + " at location " + location);
+                arr[location] = value;
+                System.out.println("Successfully inserted " + value + " at location " + location);
+
             }
             else{
-                System.out.println("This cell is already occupied");
+                System.out.println("This cell is already occupied!");
             }
         }
         catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("Invalid index to access array!");
+            System.out.println("Array index doesn't exist!");
         }
     }
+
 
     //Access a element of an array
-    public void accessingACell(int cellNumber){
+     public void  accessingACell(int cellNumber){
         try{
-            System.out.println(arr[cellNumber]);
+            if(arr[cellNumber] != Integer.MIN_VALUE){
+                System.out.println(arr[cellNumber]);
+            }
         }
         catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("Invalid index to access!");
+            System.out.println("Invalid index!");
         }
-    }
+     }
 
     //Search for an element in an array
-    public void searchInAnArray(int valueToSearch){
+    public void  searchInAnArray(int value){
         for(int i=0;i<arr.length;i++){
-            if(arr[i] == valueToSearch){
-                System.out.println("Value to find!");
-                System.out.println("Inex of " + valueToSearch + " is :" + i );
+            if(arr[i] == value){
+                System.out.println("Index of " + value + " is :" + i);
                 return;
             }
         }
-        System.out.println(valueToSearch + " is not found");
+        System.out.println(value + " not found!");
     }
 
     //Delete value for given array
-    public void deleteValueFromArray(int deleteValueFromThisCell){
+    public void deleteValueFromArray(int valueToDelete){
         try{
-            arr[deleteValueFromThisCell] = Integer.MIN_VALUE;
+            arr[valueToDelete] = Integer.MIN_VALUE;
+
         }
         catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("Cant delete the value as cell provided ,it's not in the range of array!");
+            System.out.println("There is no element with this " + valueToDelete);
         }
     }
+
 }
