@@ -63,8 +63,9 @@ public class SingleDimensionArray {
                 System.out.println("Index of " + value + " is :" + i);
                 return;
             }
+            System.out.println(value + " not found!");
         }
-        System.out.println(value + " not found!");
+
     }
 
     //Delete value for given array

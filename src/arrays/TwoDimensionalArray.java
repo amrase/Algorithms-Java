@@ -1,79 +1,86 @@
 package arrays;
 
 public class TwoDimensionalArray {
-    int array[][] = null;
+    int[][] arr = null;
 
-    public TwoDimensionalArray(int row,int column){
-        this.array = new int[row][column];
-            for (int i = 0; i < array.length; i++) {
-                for (int j = 0; j < array.length; j++) {
-                    array[i][j] = Integer.MIN_VALUE;
-                }
+    public TwoDimensionalArray(int row,int col){
+        arr = new int[row][col];
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr.length;j++){
+                arr[i][j] = Integer.MIN_VALUE;
             }
+        }
     }
 
     //print 2D array
     public void print2DArray(){
-        System.out.println("Printing the 2DArray....");
-        try {
-            for (int i=0;i<array.length;i++){
-                for(int j=0;j<array.length;j++){
-                    System.out.print("array["+ i+ "]["+ j+ "]=" + array[i][j] + " ");
+        System.out.println("Printing  2D array..");
+        try{
+
+            for(int i=0;i<arr.length;i++){
+                for(int j=0;j<arr.length;j++){
+                    System.out.println("arr["+i+"]["+j+"]=" + arr[i][j] +" ");
                 }
                 System.out.println();
             }
-            System.out.println("\n");
+
         }
         catch (Exception e){
-            System.out.println("Array doesn't exist!");
+            System.out.println("Array doesn't exist");
+//            e.printStackTrace();
         }
+
+
     }
+
 
     //Insert value in array
     public void insert(int value,int row,int column){
         try {
-            if(array[row][column] == Integer.MIN_VALUE){
-                array[row][column] = value;
-                System.out.println("Successfully inserted value " + array[row][column]);
+            if(arr[row][column] == Integer.MIN_VALUE){
+                arr[row][column] = value;
+                System.out.println("Inserting value on index Rox# "+ row + "& Col# "+ column + " value "  + arr[row][column]);
             }
-            else{
-                System.out.println("This cell is already occupied by another value");
-            }
-
-
         }
         catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("Invalid index to access array !");
-            //e.printStackTrace();
+            System.out.println("Invalid index!");
+//            e.printStackTrace();
         }
+
     }
 
 
     //search for a value in a 2D array
     public void searchSingleValue(int value){
-        System.out.println("\nSearching value " + value + " in the array..");
-        for(int i=0;i<array.length;i++){
-            for(int j=0;j<array.length;j++){
-                if(array[i][j] == value){
-                    System.out.println("Value is found at row: " + i + " ,col:" + j + "\n\n" );
-                    return;
+            for(int i =0;i<arr.length;i++){
+                for(int j=0;j<arr.length;j++){
+                    if(arr[i][j]==value){
+                        System.out.println("Value " + value + " found on Row# " + i + " Column# " + j);
+                        return;
+                    }
+                    else{
+                        System.out.println("Value not found on Row# " + i + " Column# " + j );
+                    }
+
                 }
             }
-        }
-        System.out.println("Value not found!");
     }
 
+
+
     //delete a value from array
-    public void deleteValueFromArray(int row,int col){
-        System.out.println("Deleting valut from Row#" + row + " Col#" + col + " ..." );
+    public void deleteValueFromArray(int row,int column){
         try{
-            System.out.println("Successfully deleted: " + array[row][col] );
-            array[row][col] = Integer.MIN_VALUE;
+            if(arr[row][column] != Integer.MIN_VALUE){
+                System.out.println("Successfully changed value for " + arr[row][column]);
+                arr[row][column]=Integer.MIN_VALUE;
+            }
+
         }
         catch (ArrayIndexOutOfBoundsException e){
-            System.out.println();
-            System.out.println();
-            //e.printStackTrace();
+            System.out.println("Invalid Index!");
+           // e.printStackTrace();
         }
     }
+
 }
