@@ -2,7 +2,7 @@
 
 - What is a Linked List?
 - Linear Data Structure
-- Linked List vc Arrays
+- Linked List vs Arrays
 - Components of Linked List
 - Head,Node,Tail
 - Types of Linked List:
