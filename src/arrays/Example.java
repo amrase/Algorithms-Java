@@ -22,17 +22,43 @@ public class Example {
 //        findPairsEqualsToX(arrayDiff,15);
 
 
-        int arr0s1s[] = {0,1,0,0,1,1,1,0,1};
-        System.out.println("Original Array: ");
-        for (int i = 0; i < arr0s1s.length; i++) {
-            System.out.print(arr0s1s[i]+" ");
-        }
-        arr0s1s=separate0s1s(arr0s1s);
-        System.out.println("\n===========================");
-        System.out.println("\nArray after separating 0's and 1's : ");
-        for (int i = 0; i < arr0s1s.length; i++) {
-            System.out.print(arr0s1s[i]+" ");
-        }
+//        int arr0s1s[] = {0,1,0,0,1,1,1,0,1};
+//        System.out.println("Original Array: ");
+//        for (int i = 0; i < arr0s1s.length; i++) {
+//            System.out.print(arr0s1s[i]+" ");
+//        }
+//        arr0s1s=separate0s1s(arr0s1s);
+//        System.out.println("\n===========================");
+//        System.out.println("\nArray after separating 0's and 1's : ");
+//        for (int i = 0; i < arr0s1s.length; i++) {
+//            System.out.print(arr0s1s[i]+" ");
+//        }
+
+//
+//        int arr0s1s2s[] = {1,2,2,0,0,1,2,2,1};
+//        System.out.println("Original Array: ");
+//        for (int i = 0; i < arr0s1s2s.length; i++) {
+//            System.out.print(arr0s1s2s[i]+" ");
+//        }
+//        arr0s1s2s=separate0s1s2s(arr0s1s2s);
+//        System.out.println("\n===========================");
+//        System.out.println("\nArray after separating 0's and 1's : ");
+//        for (int i = 0; i < arr0s1s2s.length; i++) {
+//            System.out.print(arr0s1s2s[i]+" ");
+//        }
+
+//        int[] arr = {2,3,6,4,9,0,11,9};
+//        subarraysWithGivenSum(arr,9);
+
+//         int arr[]={14, 12, 70, 15, 99, 65, 21, 90};
+//         isLeaderInArray(arr);
+
+        int[] arr = {0,0,0,1,1,1,1};
+        System.out.println(count1inArray(arr));
+
+
+
+
     }
 
     public static int missingElement(int[] array){
@@ -182,18 +208,94 @@ public class Example {
     }
 
     public static int[] separate0s1s(int[] arr){
-        int count=0;
-        for (int i = 0; i <arr.length ; i++) {
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
             if(arr[i]==0){
-                count ++;
+                count++;
             }
         }
-        for (int i = 0; i <count ; i++) {
-            arr[i] = 0;
+        for (int i = 0; i < count; i++) {
+            arr[i]=0;
         }
-        for (int i = count; i < arr.length; i++) {
+        for (int i = count; i <arr.length ; i++) {
             arr[i]=1;
         }
         return arr;
     }
+
+    public static int[] separate0s1s2s(int[] arr){
+        int c0=0;
+        int c1=0;
+        int c2=0;
+        int i;
+        for(i=0;i<arr.length;i++) {
+            switch (arr[i]) {
+                case 0:
+                    c0++;
+                    break;
+                case 1:
+                    c1++;
+                    break;
+                case 2:
+                    c2++;
+                    break;
+            }
+        }
+            i=0;
+            while (c0>0){
+                arr[i++]=0;
+                c0--;
+            } while (c1>0){
+                arr[i++]=1;
+                c1--;
+            } while (c2>0){
+                arr[i++]=2;
+                c2--;
+            }
+
+        return arr;
+    }
+
+    public static void subarraysWithGivenSum(int[] arr,int num){
+        for (int i = 0; i <arr.length ; i++) {
+            int currSum = 0;
+            for (int j = i; j <arr.length ; j++) {
+                currSum += arr[j];
+                if(currSum == num){
+                    System.out.println("Starting index: " + i +
+                            ", ending index: " + j
+                    );
+                }
+            }
+        }
+    }
+
+    public static void isLeaderInArray(int[] arr){
+        System.out.println("Finding leaders in an array:");
+        for (int i = 0; i < arr.length; i++) {
+            boolean isLeader  = true;
+            for (int j = i+1; j < arr.length; j++) {
+                if(arr[i]<=arr[j]){
+                    isLeader = false;
+                     break;
+                }
+            }
+            if(isLeader){
+                System.out.println(arr[i]+ "");
+
+            }
+        }
+    }
+
+    public static int  count1inArray(int[] array){
+        int count1s = 0;
+        while(count1s <array.length){
+            if(array[count1s] ==1){
+                break;
+            }
+            count1s++;
+        }
+        return array.length-count1s;
+    }
+
 }
