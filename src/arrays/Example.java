@@ -53,10 +53,23 @@ public class Example {
 //         int arr[]={14, 12, 70, 15, 99, 65, 21, 90};
 //         isLeaderInArray(arr);
 
-        int[] arr = {0,0,0,1,1,1,1};
-        System.out.println(count1inArray(arr));
+//        int[] arr = {0,0,0,1,1,1,1};
+//        System.out.println(count1inArray(arr));
+
+//        int arr[]= {47, 43, 45, 44, 46};
 
 
+//        if(checkArrayContainsConsecutiveElements(arr,arr.length))
+//            System.out.println(" Array elements are consecutive ");
+//        else
+//            System.out.println(" Array elements are not consecutive ");
+//        return;
+
+//        int[] arr1 = {1,2,3,4,5,6};
+//
+//        rotateBykElement(arr1,6);
+        int arr[]={14, 12, 70, 15, 99, 65, 21, 90};
+        System.out.println("Maximum profit :"+stockByCellByProfit(arr));
 
 
     }
@@ -298,4 +311,80 @@ public class Example {
         return array.length-count1s;
     }
 
+    private static int findMin(int[] arr, int n){
+        int min = arr[0];
+        for (int i = 0; i < n; i++) {
+            if( arr[i] <min){
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    private static int findMax(int[] arr, int n){
+        int max = arr[0];
+        for (int i = 0; i < n; i++) {
+            if(arr[i]>max){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
+    public static boolean checkArrayContainsConsecutiveElements(int[] arr,int n){
+        if(n<1){
+            return false;
+        }
+        int min = findMin(arr,n);
+        int max = findMax(arr,n);
+        if( max-min+1 == n){
+            boolean[] checked = new boolean[arr.length];
+            for (int i = 0; i <n ; i++) {
+                if(checked[arr[i]-min]!= false){
+                    return false;
+                }
+                checked[arr[i]-min] = true;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static int[] rotateBykElement(int[] arr,int k){
+        for (int i = 0; i < k; i++) {
+            for (int j = arr.length-1; j>0; j--) {
+                int temp = arr[j];
+                arr[j] = arr[j-1];
+                arr[j-1] = temp;
+            }
+            System.out.println("Array rotate after " + (i+1)+ " step");
+            printArray(arr);
+            System.out.println();
+        }
+        return arr;
+    }
+
+    public static void printArray(int[] arr){
+        for (int i = 0; i <arr.length ; i++) {
+            System.out.print(arr[i] + ",");
+        }
+    }
+
+    public static int stockByCellByProfit(int[] stock){
+        int lowestPrice = stock[0];
+        int maxProfit = Integer.MIN_VALUE;
+        for (int i = 0; i <stock.length ; i++) {
+            int profit =0;
+            if(stock[i]>lowestPrice){
+                profit = stock[i] - lowestPrice;
+                if(profit > maxProfit){
+                    maxProfit = profit;
+                }
+                else {
+                    lowestPrice = stock[i];
+                }
+            }
+        }
+        return maxProfit;
+    }
 }
