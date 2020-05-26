@@ -11,7 +11,25 @@ public class DifferentAlgos {
  //       callSelectionSort();
 //        callInsertionSort();
  //       callBucketSort();
-        callFibSum(5);
+     //   callFibSum(5);
+       // callReverseEach();
+        callReverseWord();
+    }
+
+
+    public static void callReverseEach(){
+        {
+            reverseEachCharacterInWord("Java Concept Of The Day");
+            reverseEachCharacterInWord("Java J2EE JSP Servlets Hibernate Struts");
+            reverseEachCharacterInWord("I am string not reversed");
+            reverseEachCharacterInWord("Reverse Me");
+        }
+    }
+
+    public static void callReverseWord(){
+        reverseWordsInSentence("I am string not reversed");
+        reverseWordsInSentence("Reverse Me");
+
     }
 
 
@@ -140,6 +158,33 @@ public class DifferentAlgos {
 
         }
         return f[n];
+    }
+
+
+    public static void reverseEachCharacterInWord(String inputString){
+        String[] words = inputString.split(" ");
+        String reverseString = "";
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            String reverseWord = "";
+            for (int j = word.length()-1; j >=0 ; j--) {
+                reverseWord = reverseWord + word.charAt(j);
+            }
+            reverseString = reverseString + reverseWord + " ";
+        }
+        System.out.println(inputString);
+        System.out.println(reverseString);
+    }
+
+
+    public static void reverseWordsInSentence(String inputString){
+        String[] words = inputString.split(" ");
+        String reverseString = "";
+        for (int i = words.length-1; i >=0 ; i--) {
+            reverseString = reverseString + words[i] + " ";
+        }
+        System.out.println(inputString);
+        System.out.println(reverseString);
     }
 
 
